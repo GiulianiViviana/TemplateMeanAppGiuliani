@@ -1,0 +1,36 @@
+1) A cosa servono le librerie CORS e come si applicano?
+    Cors è una libreria che aiuta a fare il passaggio alla richiesta originale.
+
+2) Spiega questo codice specificando in particolare
+  this.http.get('http://GITPOD_SERVER_URL/api').subscribe(
+     data => {this.results = data['results'];
+  });
+
+   a) A chi deve essere fatta la richiesta http?
+     Al server che contiene i dati che servono nella get fatta dal client
+
+    b) Come viene applicato il meccanismo dell’observable
+     L'observable in questo caso esiste, perchè la get lo restituisce, ma siccome subito
+     dopo c'è il subscribe rimane anonimo, quindi noi non lo vediamo.
+
+    c) Come vengono ricevuti i dati dall’observable e in quale variabile sono inseriti
+     Vengono ricevuti dall'arrow function e vengono inseriti nella variabile results.
+
+3)Riscrivi (e testa) il codice sopra esplicitando
+    a) una variabile observable ritornata dal metodo http.get()
+    b) una arrow function separata da passare come parametro alla subscribe
+
+    ngOnInit(): void {
+      // Make the HTTP request:
+      this.o = this.http.get('https://3000-e8ad746d-1e02-48e9-9a6d-e4103ff17893.ws-eu0.gitpod.io/api');
+      this.o.subscribe(this.getData);
+    }
+    getData = (data : Object) =>
+    {
+     this.results = data['results'];
+    }
+
+4) Disegna l’architettura dell’applicazione evidenziando lo scambio di messaggi tra
+    a) Browser e server angular
+    b) Browser e server node
+
