@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
 
     ngOnInit(): void {
       // Make the HTTP request:
-      this.http.get('http://GITPOD_SERVER_URL/api').subscribe(data => {
+      this.http.get('https://3000-e8ad746d-1e02-48e9-9a6d-e4103ff17893.ws-eu0.gitpod.io/api').subscribe(data => {
         // Read the result field from the JSON response.
         this.results = data['results'];
       });
